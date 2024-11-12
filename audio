@@ -1,0 +1,3 @@
+<audio id="jumpSound" src="jump.mp3" preload="auto"></audio>
+<audio id="powerUpSound" src="powerup.mp3" preload="auto"></audio>
+<audio id="enemyHitSound" src="enemyhit.mp3" preload="auto"></audio>
