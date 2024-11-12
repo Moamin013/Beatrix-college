@@ -1,0 +1,27 @@
+const jumpSound = document.getElementById('jumpSound');
+const powerUpSound = document.getElementById('powerUpSound');
+const enemyHitSound = document.getElementById('enemyHitSound');
+
+// Speel geluid af bij springen
+document.addEventListener('keydown', (event) => {
+    if (event.key === ' ' && !isJumping) {
+        jumpSound.play();
+        isJumping = true;
+        velocityY = -jumpStrength;
+    }
+});
+
+// Speel geluid af bij het oppakken van een power-up
+if (detectCollision(player, powerUp) && !hasPowerUp) {
+    hasPowerUp = true;
+    activatePowerUp();
+    powerUp.style.display = 'none';
+    powerUpSound.play();  // Power-up geluid
+}
+
+// Speel geluid af bij het raken van een vijand
+if (detectCollision(player, enemy)) {
+    enemyHitSound.play();  // Vijand geraakt geluid
+    alert("Game Over! Je hebt een vijand geraakt.");
+    resetGame();
+}
