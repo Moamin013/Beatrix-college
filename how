@@ -1,0 +1,15 @@
+let timeLeft = 60;  // Starttijd in seconden
+
+function updateTimer() {
+    document.getElementById('timer').textContent = `Tijd: ${timeLeft}`;
+
+    if (timeLeft <= 0) {
+        alert("Tijd is op! Je hebt verloren.");
+        resetGame();  // Of reset de game zoals je wilt
+    } else {
+        timeLeft--;
+        setTimeout(updateTimer, 1000);  // Update elke seconde
+    }
+}
+
+updateTimer();  // Start de timer meteen
