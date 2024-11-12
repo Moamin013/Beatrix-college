@@ -1,0 +1,36 @@
+onst enemy = document.getElementById('enemy');
+let enemySpeed = 2;
+let enemyDirection = 1;  // 1 betekent naar rechts, -1 naar links
+
+function moveEnemy() {
+    // Beweeg de vijand naar rechts of links
+    enemy.style.left = `${enemy.offsetLeft + enemySpeed * enemyDirection}px`;
+
+    // Als de vijand de grenzen van het speelgebied bereikt, verander de richting
+    if (enemy.offsetLeft >= gameContainer.offsetWidth - enemy.offsetWidth || enemy.offsetLeft <= 0) {
+        enemyDirection *= -1;  // Verander richting
+    }
+
+    // Controleer of de speler de vijand heeft geraakt
+    if (detectCollision(player, enemy)) {
+        alert("Game Over! Je hebt een vijand geraakt.");
+        resetGame();
+    }
+}
+
+function resetGame() {
+    // Reset speler positie
+    player.style.left = '50px';
+    player.style.top = `${gameContainer.offsetHeight - player.offsetHeight}px`;
+
+    // Reset vijand positie
+    enemy.style.left = `${Math.random() * (gameContainer.offsetWidth - enemy.offsetWidth)}px`;
+}
+
+function gameLoop() {
+    // Bestaande code voor beweging en jumping...
+    moveEnemy();
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
