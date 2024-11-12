@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #87CEEB;
+    font-family: Arial, sans-serif;
+}
+
+#gameContainer {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background-color: #6B8E23;
+    overflow: hidden;
+    border: 2px solid #333;
+}
+
+#player {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 5px;
+}
+
+#powerUp {
+    position: absolute;
+    bottom: 100px;
+    left: 300px;
+    width: 30px;
+    height: 30px;
+    background-color: gold;
+    border-radius: 50%;
+}
